@@ -19,7 +19,7 @@ void insertion_sort_list(listint_t **list)
             if (swap->prev)
             {
                 swap->prev->next = after;
-                after->perv = swap->prev;
+                after->prev = swap->prev;
             }
             if (after->next)
             {
