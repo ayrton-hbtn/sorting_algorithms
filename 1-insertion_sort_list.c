@@ -1,33 +1,68 @@
 #include "sort.h"
 
 /**
-*
-*
-*
-*
-*/
+ *
+ * 
+ * 
+ */
+/*
+void insert_sorted(listint_t **head, listint_t *node)
+{
+    listint_t *tmp = *head;
+
+    if (!*head)
+    {
+        node->prev = NULL;
+        node->next = NULL;
+        *head = node;
+    }
+    else if ((*head)->n >= node->n)
+    {
+        node->next = *head;
+        (*head)->prev = node;
+        *head = node;
+    }
+    else
+    {
+        while (tmp->next && tmp->next->n < node->n)
+        {
+            tmp = tmp->next;
+        }
+        node->next = tmp->next;
+        if (tmp->next)
+            tmp->next->prev = node;
+        tmp->next = node;
+        node->prev = tmp;
+    }
+}*/
+
+/**
+ * 
+ * 
+ * 
+ */
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *tmp = *list, *after, *swap;
+    listint_t *tmp = *list, *back;
 
     while (tmp->next)
     {
-        after = tmp->next;
-        while (after->prev && after->prev->n > after->n)
+        back = tmp->next;
+        while (back->prev && (back->n < back->prev->n))
         {
-            swap = after->prev;
-            if (swap->prev)
+            if (back->next)
             {
-                swap->prev->next = after;
-                after->prev = swap->prev;
+                back->next->prev = tmp;
             }
-            if (after->next)
+            if (tmp->prev)
             {
-                after->next->prev = swap;
-                swap->next = after->next;
+                tmp->prev->next = back;
             }
-            swap->prev = after;
-            after->next = swap;
+            back->prev = tmp->prev;
+            tmp->next = back->next;
+            back->next = tmp;
+            tmp->prev = back;
+            back = back->prev;
             print_list(*list);
         }
         tmp = tmp->next;
