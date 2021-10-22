@@ -1,45 +1,9 @@
 #include "sort.h"
 
 /**
- *
- * 
- * 
- */
-/*
-void insert_sorted(listint_t **head, listint_t *node)
-{
-    listint_t *tmp = *head;
-
-    if (!*head)
-    {
-        node->prev = NULL;
-        node->next = NULL;
-        *head = node;
-    }
-    else if ((*head)->n >= node->n)
-    {
-        node->next = *head;
-        (*head)->prev = node;
-        *head = node;
-    }
-    else
-    {
-        while (tmp->next && tmp->next->n < node->n)
-        {
-            tmp = tmp->next;
-        }
-        node->next = tmp->next;
-        if (tmp->next)
-            tmp->next->prev = node;
-        tmp->next = node;
-        node->prev = tmp;
-    }
-}*/
-
-/**
- * 
- * 
- * 
+ * insertion_sort_list - insertion sort algorithm for a doubly
+ * linked list
+ * @list: pointer to head of linked list
  */
 void insertion_sort_list(listint_t **list)
 {
@@ -62,7 +26,6 @@ void insertion_sort_list(listint_t **list)
             tmp->next = back->next;
             back->next = tmp;
             tmp->prev = back;
-            back = back->prev;
             print_list(*list);
         }
         tmp = tmp->next;
