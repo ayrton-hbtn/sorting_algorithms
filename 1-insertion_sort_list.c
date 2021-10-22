@@ -28,8 +28,8 @@ void insertion_sort_list(listint_t **list)
             }
             swap->prev = after;
             after->next = swap;
+            print_list(*list);
         }
-        print_list(*list);
         tmp = tmp->next;
     }
 }
