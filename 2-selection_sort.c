@@ -7,12 +7,13 @@
  */
 void selection_sort(int *array, size_t size)
 {
-    int i, j, position, tmp;
+    size_t i, j, position;
+	int tmp;
 
-    for (i = 0; i < size - 1, i++)
+    for (i = 0; i < size - 1; i++)
     {
         position = i;
-        for (j = i + 1; j < n; j++)
+        for (j = i + 1; j < size; j++)
         {
             if (array[position] > array[j])
                 position = j;
