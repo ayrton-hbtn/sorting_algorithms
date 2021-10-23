@@ -29,18 +29,21 @@ void swap(int *a, int *b)
   */
 int partition(int *array, int low, int high, size_t size)
 {
-	int i = (low - 1), pivot = array[high], j;
+	int i, pivot = array[high], j;
 
-	for (j = low; j < high; j++)
+	for (j = low, i = low - 1; j < high; j++)
 	{
 		if (array[j] <= pivot)
 		{
 			i++;
 			swap(&array[i], &array[j]);
+			if (array[i] != array[j])
+				print_array(array, size);
 		}
 	}
 	swap(&array[i + 1], &array[high]);
-	print_array(array, size);
+	if (array[high] != array[i + 1])
+		print_array(array, size);
 	return (i + 1);
 }
 
