@@ -10,6 +10,9 @@ void shell_sort(int *array, size_t size)
 		size_t i, gap = 1, j;
 		int tmp, tmpint;
 
+		if (size < 2)
+			return;
+
 		while (gap <= (size / 3))
 		{
 			gap = gap * 3 + 1; /*Gets the max value of the gap*/
