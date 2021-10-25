@@ -7,15 +7,16 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *tmp = *list, *back;
+	listint_t *tmp, *back;
 
 	if (!list || !(*list) || !(*list)->next)
 		return;
 
+	tmp = *list;
 	while (tmp)
 	{
 		back = tmp;
-		while (back->prev && (back->n < back->prev->n))
+		while (back->prev && back->n < back->prev->n)
 		{
 			back->prev->next = back->next;
 			if (back->next)
