@@ -9,6 +9,9 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *tmp = *list, *back;
 
+	if (!list || !(*list) || !(*list)->next)
+		return;
+
 	while (tmp)
 	{
 		back = tmp;
